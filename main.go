@@ -14,7 +14,6 @@ func main() {
 	http.HandleFunc("/informations/{id}", groupie.HandleInfos)
 	http.HandleFunc("/search", groupie.HandleSearch)
 	http.HandleFunc("/filters", groupie.HandleFilters)
-	http.HandleFunc("/about", groupie.HandleAbout)
 	fmt.Println("Starting server on http://localhost:8080")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {

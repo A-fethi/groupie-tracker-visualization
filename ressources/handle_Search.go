@@ -38,7 +38,7 @@ func HandleSearch(w http.ResponseWriter, r *http.Request) {
 	search := r.FormValue("search")
 	search = strings.TrimSpace(search)
 	if search == "" {
-		HandleError(w, http.StatusBadRequest)
+		http.Error(w, "No search term provided", http.StatusBadRequest)
 		return
 	}
 	for _, artist := range artists {

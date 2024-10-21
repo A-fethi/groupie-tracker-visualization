@@ -10,7 +10,6 @@ func fileExists(filename string) error {
 	_, err := os.Stat(filename)
 	return err
 }
-
 // HandleStatic serves static files if they exist and have allowed extensions, or returns a 404 error.
 func HandleStatic(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
@@ -18,8 +17,11 @@ func HandleStatic(w http.ResponseWriter, r *http.Request) {
 	allowedExtensions := map[string]bool{
 		".css":   true,
 		".png":   true,
+		".jpg":   true,
+		".jpeg":  true,
 		".svg":   true,
-		".ttf": true,
+		".woff2": true,
+		".mp4": true,
 	}
 	ext := filepath.Ext(path)
 	if !allowedExtensions[ext] {
